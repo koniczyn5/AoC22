@@ -12,7 +12,7 @@ public class Main {
 
         File file = new File("resources\\day4\\input.txt");
 
-        int numberOfOverlappingAssignments = 0;
+        int numberOfFullOverlaps = 0;
         int numberOfPairs = 0;
         int numberOfNoOverlaps = 0;
 
@@ -24,7 +24,7 @@ public class Main {
 
                 numberOfPairs++;
                 int overlapStatus = overlapStatus(assignmentPairs[0], assignmentPairs[1]);
-                numberOfOverlappingAssignments += overlapStatus == 1 ? 1 : 0;
+                numberOfFullOverlaps += overlapStatus == 1 ? 1 : 0;
                 numberOfNoOverlaps += overlapStatus == -1 ? 1 : 0;
             }
         } catch (IOException e) {
@@ -33,7 +33,7 @@ public class Main {
 
 
         System.out.println("Part 1:");
-        System.out.println(numberOfOverlappingAssignments);
+        System.out.println(numberOfFullOverlaps);
         System.out.println("Part 2:");
         System.out.println(numberOfPairs - numberOfNoOverlaps);
         System.out.println("Finished");
