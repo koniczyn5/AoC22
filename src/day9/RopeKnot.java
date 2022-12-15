@@ -1,5 +1,6 @@
 package day9;
 
+import commons.Coordinate;
 import lombok.Data;
 import lombok.ToString;
 
@@ -12,6 +13,10 @@ public class RopeKnot {
     private final RopeKnot prevKnot;
     @ToString.Exclude
     private RopeKnot nextKnot;
+
+    public Coordinate produceCoordinate() {
+        return new Coordinate(x, y);
+    }
 
     public boolean isInRange(RopeKnot other) {
         return Math.abs(this.getX() - other.getX()) <= 1

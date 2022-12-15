@@ -1,5 +1,7 @@
 package day9;
 
+import commons.Coordinate;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -29,7 +31,7 @@ public class Main {
         RopeKnot tail = rope.get(rope.size() - 1);
 
         Set<Coordinate> visitedByTail = new HashSet<>();
-        visitedByTail.add(new Coordinate(tail));
+        visitedByTail.add(tail.produceCoordinate());
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -61,7 +63,7 @@ public class Main {
                         prevKnot = currentKnot;
                         currentKnot = currentKnot.getNextKnot();
                     }
-                    visitedByTail.add(new Coordinate(tail));
+                    visitedByTail.add(tail.produceCoordinate());
                 }
             }
         } catch (IOException e) {

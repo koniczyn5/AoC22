@@ -1,4 +1,4 @@
-package day14;
+package commons;
 
 public record Coordinate(int x, int y) {
 }

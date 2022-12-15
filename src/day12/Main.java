@@ -1,5 +1,7 @@
 package day12;
 
+import commons.Coordinate;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -29,18 +31,18 @@ public class Main {
                     switch (hillHeightChar) {
                         case 'S' -> {
                             Hill newHill = new Hill(i, rowCounter, 'a');
-                            hills.put(new Coordinate(newHill), newHill);
+                            hills.put(newHill.produceCoordinate(), newHill);
                             start = newHill;
                         }
                         case 'E' -> {
                             Hill newHill = new Hill(i, rowCounter, 'z');
-                            hills.put(new Coordinate(newHill), newHill);
+                            hills.put(newHill.produceCoordinate(), newHill);
                             newHill.setDistanceToEnd(0);
                             destination = newHill;
                         }
                         default -> {
                             Hill newHill = new Hill(i, rowCounter, hillHeightChar);
-                            hills.put(new Coordinate(newHill), newHill);
+                            hills.put(newHill.produceCoordinate(), newHill);
                         }
                     }
                 }
