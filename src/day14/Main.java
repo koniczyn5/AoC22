@@ -53,7 +53,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int lowestY = findLowestPointInSet(objectsInCave);
+        long lowestY = findLowestPointInSet(objectsInCave);
         List<Integer> sandStartingCoordinates = List.of(500, 0);
 
         Coordinate currentSandPosition = new Coordinate(sandStartingCoordinates.get(0), sandStartingCoordinates.get(1));
@@ -74,7 +74,7 @@ public class Main {
         System.out.println("Part 1:");
         System.out.println(sandCounter);
 
-        int floorY = lowestY + 2;
+        long floorY = lowestY + 2;
         while (true) {
             if (currentSandPosition.y() + 1 < floorY) {
                 if (!objectsInCave.contains(new Coordinate(currentSandPosition.x(), currentSandPosition.y() + 1))) {
@@ -103,7 +103,7 @@ public class Main {
         System.out.println("Finished");
     }
 
-    private static int findLowestPointInSet(Set<Coordinate> points) {
-        return points.stream().map(Coordinate::y).max(Integer::compareTo).orElse(0);
+    private static long findLowestPointInSet(Set<Coordinate> points) {
+        return points.stream().map(Coordinate::y).max(Long::compareTo).orElse(0L);
     }
 }

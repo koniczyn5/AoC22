@@ -33,9 +33,9 @@ public class Main {
                         objectsInCave,
                         Spot.SpotType.BEACON);
 
-                int distanceToBeacon = getManhattanDistance(sensor, beacon);
+                long distanceToBeacon = getManhattanDistance(sensor, beacon);
 
-                int distanceToRow = Math.abs(sensor.getPoint().y() - ROW_TO_CHECK);
+                long distanceToRow = Math.abs(sensor.getPoint().y() - ROW_TO_CHECK);
                 if (distanceToRow <= distanceToBeacon) {
                     for (int i = 0; i <= distanceToBeacon - distanceToRow; i++) {
                         List<Integer> xs = List.of(-i, i);
@@ -74,10 +74,10 @@ public class Main {
                 break;
             }
 
-            int sensorRange = getManhattanDistance(sensor.getKey(), sensor.getValue());
+            long sensorRange = getManhattanDistance(sensor.getKey(), sensor.getValue());
 
-            int mhdToSensor = getManhattanDistance(new Spot(newPoint), sensor.getKey());
-            int skippedXSteps = sensorRange - mhdToSensor + 1;
+            long mhdToSensor = getManhattanDistance(new Spot(newPoint), sensor.getKey());
+            long skippedXSteps = sensorRange - mhdToSensor + 1;
 
             long nextX = x + skippedXSteps;
             x = nextX > DISTRESS_MAX_POSITION ? 0 : nextX;
@@ -102,7 +102,7 @@ public class Main {
         return spot;
     }
 
-    private static int getManhattanDistance(Spot firstSpot, Spot secodnSpot) {
+    private static long getManhattanDistance(Spot firstSpot, Spot secodnSpot) {
         return Math.abs(firstSpot.getPoint().x() - secodnSpot.getPoint().x())
                 + Math.abs(firstSpot.getPoint().y() - secodnSpot.getPoint().y());
     }
